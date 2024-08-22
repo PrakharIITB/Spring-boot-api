@@ -69,5 +69,37 @@ To ensure the security of the API and protect sensitive data, the following prac
 1. Clone the repository:
    ```bash
    git clone https://github.com/PrakharIITB/Spring-boot-api
+
+2. Open the repository in any code editor preferably(Intelli J)
+3. Run the `QueryApiApplication` file. You can find it in src/main/java/com/example/api/QueryApiApplication.java
+4. The server is started and you can start using the API
+
+### Usage
+- **Endpoint** `GET /api/supplier/`
+- **Example Query**
   ```bash
+  curl -X GET "http://localhost:8080/api/supplier/?page=1&size=10&searchQuery=give$20me$20all$20large$20scale$20manufacturers$20in$20chicago$20who$20do$20moulding"
+- **Sample Response**
+  ```bash
+  [
+    {
+        "id": "SUPP0044",
+        "companyName": "Synthetix",
+        "website": "www.synthetix.com",
+        "location": "Chicago",
+        "natureOfBusiness": "large_scale",
+        "manufacturingProcesses": "moulding"
+    },
+    {
+        "id": "SUPP0068",
+        "companyName": "ZenithWorks",
+        "website": "www.zenithworks.com",
+        "location": "Chicago",
+        "natureOfBusiness": "large_scale",
+        "manufacturingProcesses": "moulding"
+    }
+  ]
+  
+
+  
 
