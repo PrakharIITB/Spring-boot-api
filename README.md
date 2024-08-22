@@ -99,7 +99,3 @@ To ensure the security of the API and protect sensitive data, the following prac
         "manufacturingProcesses": "moulding"
     }
   ]
-  
-
-  
-
