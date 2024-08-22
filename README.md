@@ -16,7 +16,7 @@ The Manufacturer Search API is designed to allow users to search for manufacture
 
 - **Services**: Contains business logic for processing queries and returning results.
   - `ManufacturerService.java`: Core service that processes the query object and fetches the list of manufacturers.
-  - `QueryParserService.java`: Service that parses the string query using Regex and creates a query object.
+  - `FilterKeywords.java`: Service that parses the string query using Regex and creates a query object.
   
 - **Controller**: Manages incoming requests and responses.
   - `ManufacturerController.java`: Handles API endpoints for searching manufacturers and returns results or errors.
@@ -35,7 +35,7 @@ The Manufacturer Search API is designed to allow users to search for manufacture
 ## How It Works
 
 ### 1. Query Parsing
-The query passed by the user (e.g., "give all medium scale manufacturers in Chicago who do molding") is processed by the `QueryParserService`. The service uses regular expressions to extract filters such as scale, location, and manufacturing process.
+The query passed by the user (e.g., "give all medium scale manufacturers in Chicago who do molding") is processed by the `FilterKeywords`. The service uses regular expressions to extract filters such as scale, location, and manufacturing process.
 
 ### 2. Query Object Creation
 The extracted filters are used to create a `QueryObject` that represents the search criteria.
@@ -44,15 +44,14 @@ The extracted filters are used to create a `QueryObject` that represents the sea
 The `QueryObject` is passed to the `ManufacturerService`'s `getManufacturer` method, which returns a list of manufacturers matching the criteria.
 
 ### 4. Exception Handling
-- **Custom Exceptions**: Specific errors related to query parsing or data retrieval result in custom exceptions.
+- **Custom Exceptions**: Specifically created for throwing invalid input error in the response.
 - **General Exceptions**: Any unhandled exceptions are caught by the global handler and return a generic error response.
 
 ## Security Best Practices
 
-To ensure the security of the API and protect sensitive data, the following practices have been implemented:
+To ensure the security of the API and protect sensitive data, the following practices can been implemented:
 
 - **Input Validation**: All input queries are validated to prevent injection attacks.
-- **Exception Handling**: Proper exception handling ensures that sensitive information is not exposed in error messages.
 - **Data Encryption**: Sensitive data is encrypted both in transit (using HTTPS) and at rest.
 - **Authentication & Authorization**: Implementing JWT tokens for user authentication and role-based access control to restrict access to certain endpoints.
 - **Logging & Monitoring**: All API requests and responses are logged for monitoring and auditing purposes. Sensitive data in logs is masked.
@@ -62,7 +61,7 @@ To ensure the security of the API and protect sensitive data, the following prac
 
 ### Prerequisites
 
-- Java 11+
+- Java 17+
 - Maven
 
 ### Installation
